@@ -22,6 +22,13 @@ jobs:
           # We need to check which week it is.
 
           echo "${{ inputs.force }}"
+          date = $(expr $(date +%W) % 2) -eq 1
+          echo "DATE: ${{ date }}"
+          forcy = inputs.force = 'true'
+          echo "FORCY: ${{ date }}"
+          forcy2 = inputs.force = true
+          echo "FORCY2: ${{ date }}"
+
 
           if [ $(expr $(date +%W) % 2) -eq 1  ] || [ inputs.force = 'true' ];
           then
