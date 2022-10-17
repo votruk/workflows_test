@@ -3,7 +3,7 @@ name: Freeze Release
 on:
   workflow_dispatch:
     inputs:
-      force-run:
+      force:
         type: boolean
         description: Force the workflow
         default: false
@@ -21,11 +21,13 @@ jobs:
           # Plain cronjob syntax does not provide such option.
           # We need to check which week it is.
 
-          if [ $(expr $(date +%W) % 2) -eq 1  ] || [ github.event.inputs.force-run = 'true' ];
+          echo " {{ inputs.force }} "
+
+          if [ $(expr $(date +%W) % 2) -eq 1  ] || [ inputs.force = 'true' ];
           then
             version=`dart ../tools/pubspec_version.dart --major-minor --pubspec ../pubspec.yaml`
 
             bundle exec fastlane freeze_release
 
-            echo "GOT INSIDE"
+            echo " {{ }} "
           fi
