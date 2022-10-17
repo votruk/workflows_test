@@ -22,7 +22,7 @@ jobs:
           # We need to check which week it is.
 
           echo "${{ inputs.force }}"
-          date_week=$(expr $(date +%W) % 2) -eq 1
+          date_week=expr $(date +%W) % 2
           echo "DATE: ${{ date_week }}"
           forcy = inputs.force = 'true'
           echo "FORCY: ${{ forcy }}"
