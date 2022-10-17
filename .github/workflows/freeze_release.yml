@@ -21,7 +21,7 @@ jobs:
           # Plain cronjob syntax does not provide such option.
           # We need to check which week it is.
 
-          echo " {{ inputs.force }} "
+          echo inputs.force
 
           if [ $(expr $(date +%W) % 2) -eq 1  ] || [ inputs.force = 'true' ];
           then
