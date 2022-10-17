@@ -12,7 +12,7 @@ on:
 jobs:
   freeze_release:
     name: Freeze Release
-    runs-on: [self-hosted, linux]
+    runs-on: [ubuntu-latest]
     steps:
       - id: create_branch
         name: Create Release Branch
