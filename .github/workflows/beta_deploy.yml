@@ -12,6 +12,7 @@ on:
 
 jobs:
   printer:
+    name: First step
     runs-on: [ubuntu-latest]
     steps:
       - name: Set outputs
