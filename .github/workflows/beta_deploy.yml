@@ -1,6 +1,6 @@
 # Freezes the current main as a release in a release branch.
 name: Beta Deploy
-run-name: "${{ github.workflow }}: ${{ github.ref_name }} ${{ github.sha }}"
+run-name: "${{ github.workflow }}: ${{ github.ref_name }} #${{ github.sha }}"
 on:
   workflow_dispatch:
   workflow_call:
