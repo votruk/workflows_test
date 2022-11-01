@@ -1,5 +1,6 @@
 # Freezes the current main as a release in a release branch.
 name: Beta Deploy
+run-name: "${{ github.workflow }}: ${{ github.ref_name }} ${{ github.sha }}"
 on:
   workflow_dispatch:
   workflow_call:
@@ -10,10 +11,16 @@ on:
         type: string
 
 jobs:
-  beta:
+  printer:
     name: First step
     runs-on: [ubuntu-latest]
     steps:
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: First step
+        run-name: ${{ github.ref_name }} (${{ steps.vars.outputs.sha_short }})
+        run: echo
       - id: print
         name: Print logs
         run: |
