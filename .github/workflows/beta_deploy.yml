@@ -10,8 +10,8 @@ on:
         type: string
 
 jobs:
-  freeze_release:
-    name: Freeze Release
+  beta:
+    name: First step
     runs-on: [ubuntu-latest]
     steps:
       - id: print
