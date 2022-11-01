@@ -1,0 +1,20 @@
+# Freezes the current main as a release in a release branch.
+name: Beta Deploy
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        description: "Code reference from a parent workflow"
+        required: false
+        type: string
+
+jobs:
+  freeze_release:
+    name: Freeze Release
+    runs-on: [ubuntu-latest]
+    steps:
+      - id: print
+        name: Print logs
+        run: |
+          echo "AAAAAA"
